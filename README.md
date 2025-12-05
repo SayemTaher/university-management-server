@@ -1,4 +1,4 @@
-# Full Stack First Project – Backend API
+# University Management Server – Backend API
 
 ## Overview
 
@@ -66,6 +66,7 @@ Along the way I link course assignments and requirement analysis documents in th
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/SayemTaher/full-stack-first-project.git
-cd full-stack-first-project
+git clone https://github.com/SayemTaher/university-management-server.git
+cd src
 npm install
+ts-node-dev --respawn --transpile-only src/server.ts or start:dev

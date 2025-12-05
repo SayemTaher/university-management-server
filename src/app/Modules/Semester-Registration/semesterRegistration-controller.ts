@@ -4,6 +4,7 @@ import sendResponse from "../../utilities/send-response";
 import { SemesterRegistrationService } from "./semesterRegistration-services";
 import httpStatus from 'http-status';
 const createSemesterRegistration = catchAsync(async (req: Request, res: Response) => {
+    
     const result = await SemesterRegistrationService.createSemesterRegistrationInDb(req.body)
     
     sendResponse(res, {
@@ -33,6 +34,16 @@ const getSingleSemesterRegistration = catchAsync(async (req: Request, res: Respo
       data: result,
     });
 })
+const updateSemesterRegistration = catchAsync(async (req: Request, res: Response) => { 
+    const { id } = req.params;
+    const result = await SemesterRegistrationService.updateSemesterRegistrationIntoDb(id, req.body);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Semester updated successfully',
+      data: result,
+    });
+})
 export const semesterRegistrationController = {
-    createSemesterRegistration, getAllSemesterRegistration, getSingleSemesterRegistration
+    createSemesterRegistration, getAllSemesterRegistration, getSingleSemesterRegistration, updateSemesterRegistration
 }

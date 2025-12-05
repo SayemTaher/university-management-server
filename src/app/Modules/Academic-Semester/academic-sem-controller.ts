@@ -37,7 +37,7 @@ const getSingleSemesterData = catchAsync(async (req, res) => {
 })
 
 const updateSingleSemesterData = catchAsync(async (req, res) => {
-    const id = req.params.id 
+    const id = req.params.semesterId;
     const data = await AcademicSemesterServices.updateSingleDataInDb(id, req.body)
     sendResponse(res, {
       statusCode: httpStatus.OK,
